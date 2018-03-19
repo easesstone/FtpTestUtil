@@ -1,0 +1,18 @@
+{
+   "CaptureTime" : "2018/03/08 15:48:56",
+   "DevNum" : "17320NCP0HZ0044-1",
+   "FaceImageInfos" : [
+      {
+         "FaceImageName" : "2018_03_08_15_48_56_16214_1.jpg",
+         "ImageSize" : 31769,
+         "bottom" : 5779,
+         "left" : 2440,
+         "objId" : 428,
+         "right" : 3276,
+         "score" : 40,
+         "top" : 3777
+      }
+   ],
+   "ImageSize" : 197696,
+   "SceneImageName" : "2018_03_08_15_48_56_16214_0.jpg"
+}
