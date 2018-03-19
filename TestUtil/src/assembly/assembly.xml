@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly>
+    <id>TestUtil</id>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats><!--打包的文件格式-->
+        <format>dir</format>
+    </formats>
+
+    <fileSets>
+        <!--项目bin目录-->
+        <fileSet>
+            <directory>${project.basedir}/bin</directory>
+            <fileMode>0755</fileMode>
+            <outputDirectory>bin</outputDirectory><!--打包后输出的路径-->
+        </fileSet>
+
+        <!--项目resources目录-->
+        <fileSet>
+            <directory>${project.basedir}/src/main/resources</directory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <outputDirectory>conf</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <!--依赖包打包到目录下-->
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <!--把间接依赖的jar 也包含进来 -->
+            <useTransitiveDependencies>true</useTransitiveDependencies>
+            <!--是否解压 -->
+            <unpack>false</unpack>
+            <outputDirectory>lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>
+</assembly>

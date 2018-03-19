@@ -1,0 +1,26 @@
+<assembly>
+    <id>all</id>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats>
+        <format>tar.gz</format>
+        <format>dir</format>
+    </formats>
+
+    <fileSets>
+        <!--项目README 文件-->
+        <fileSet>
+            <directory>../</directory>
+            <includes>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
+        <!--项目模块-->
+        <fileSet>
+            <directory>../TestUtil/target/TestUtil-1.0</directory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <outputDirectory>TestUtil</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
