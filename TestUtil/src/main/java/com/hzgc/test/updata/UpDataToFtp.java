@@ -2,6 +2,7 @@ package com.hzgc.test.updata;
 
 import com.hzgc.test.util.UpDataToFtpProperHelper;
 
+import java.io.File;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -12,15 +13,16 @@ public class UpDataToFtp {
         int threadNum = upDataToFtpProperHelper.getThreadNum();
 
         int loopNum = upDataToFtpProperHelper.getLoopNum(); //发送图片循环次数
-        String path = "picFrom"; //图片路径
         String ipcId = "DS-2DE72XYZIW-ABCVS20160823CCCH641752612"; //ipcId
+        String picFromPath = ClassLoader.getSystemResource("picFrom").getPath();
+        File file = new File(picFromPath);
 
         long startTime = System.currentTimeMillis();
         // 开启threadNum个线程池来向ftp发送图片
         ThreadPoolExecutor pool = new ThreadPoolExecutor(threadNum, threadNum,
                 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
         for (int i = 0; i < threadNum; i++) {
-            pool.execute(new UpDataThread(path, loopNum, ipcId));
+            pool.execute(new UpDataThread(file, loopNum, ipcId));
         }
         pool.shutdown();
 

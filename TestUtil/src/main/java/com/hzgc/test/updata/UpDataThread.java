@@ -4,6 +4,7 @@ import com.hzgc.test.util.FTPDownloadUtils;
 import com.hzgc.test.util.UpDataToFtpProperHelper;
 
 import java.io.File;
+import java.net.URL;
 import java.util.Random;
 
 /**
@@ -15,12 +16,12 @@ class UpDataThread implements Runnable {
     private int port = upDataToFtpProperHelper.getPort();
     private String ip = upDataToFtpProperHelper.getIp();
 
-    private String path; // 图片路径
+    private File path;
     private int loopNum; // 循环次数
     private String ipcId; // ipcId
     private int count;
 
-    UpDataThread(String path, int loopNum, String ipcId) {
+    UpDataThread(File path, int loopNum, String ipcId) {
         this.path = path;
         this.loopNum = loopNum;
         this.ipcId = ipcId;
@@ -28,8 +29,9 @@ class UpDataThread implements Runnable {
 
     @Override
     public void run() {
-        File file = new File(path);
-        File[] tempList = file.listFiles();
+
+        File[] tempList = path.listFiles();
+        System.out.println(tempList);
         for (int i = 0; i < loopNum; i++) {
             Random random = new Random();
             int randNum = random.nextInt(10000000);

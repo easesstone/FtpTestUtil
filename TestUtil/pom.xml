@@ -16,10 +16,10 @@
                 <targetPath>${project.build.directory}/classes</targetPath>
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
-                <excludes>
-                    <exclude>*.properties</exclude>
-                    <exclude>*.xml</exclude>
-                </excludes>
+                <!--<excludes>-->
+                    <!--<exclude>*.properties</exclude>-->
+                    <!--<exclude>*.xml</exclude>-->
+                <!--</excludes>-->
             </resource>
         </resources>
 
