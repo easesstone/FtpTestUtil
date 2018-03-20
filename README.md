@@ -7,7 +7,9 @@ FtpTestUtil是一个用于模拟多路摄像头向ftp发送图片的工具。
 文件./bin/upDataToFtp.sh用于启动发送图片的客户端程序。
 
 #### 使用方法
-1、  修改./conf/ftpTest.properties，例如：  
+1、从https://github.com/sukidasakura/FtpTestUtil下载工具到本地，mvn clean package编译打包。  
+2、打包后，将压缩包FtpTestUtil.tar.gz放到发送图片的客户端机器上。  
+3、解压FtpTestUtil.tar.gz后，修改./conf/ftpTest.properties，例如：  
 ```
 ip=172.18.18.163  
 port=2121  
@@ -19,4 +21,4 @@ port表示要发送图片的ftp服务器的端口号
 loopNum表示要发送图片的组数（由于./conf/picFrom下只存放了一组图片，因此循环几次代表发送几组）  
 threadNum表示模拟的发送图片的摄像头路数（需要按照所在客户端的逻辑cpu核数合理配置）
 
-2、执行./bin/upDataToFtp.sh脚本，向Ftp服务器发送图片。
+4、执行./bin/upDataToFtp.sh脚本，向Ftp服务器发送图片。
